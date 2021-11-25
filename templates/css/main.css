@@ -1,0 +1,42 @@
+html,body,p,h1,div{
+    font-family: 'Kanit', sans-serif;
+    
+}
+html,body{
+    height: 100%;
+}
+.icon{
+    width: 64px;
+    object-fit: cover;
+}
+.btn_hover{
+    transition: 0.25s;
+}
+.btn_hover:hover{
+    transition: 0.25s;
+    background-color: rgb(49, 49, 49)!important;
+}
+
+.item_hover_gray{
+    transition: 0.25s;
+}
+.item_hover_gray:hover{
+    transition: 0.25s;
+    background-color: rgb(59, 59, 59)!important;
+    color: rgb(255, 255, 255)!important;
+}
+
+.btn_hl{
+    transition: 0.25s;
+    background-color: rgb(65, 65, 65)!important;
+}
+
+.image_product_detail{
+    transition: 0.25s;
+    width: 30vh;
+}
+
+.image_product_detail:hover{
+    transition: 0.25s;
+    width: 40vh;
+}

@@ -1,0 +1,323 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ITu</title>
+
+<!-- ===========Jquery=========== -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- ===========Boostrap 5=========== -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<!-- ===========Google font=========== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400;900&display=swap" rel="stylesheet">
+
+<!-- ===========Datatable=========== -->
+<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+
+</head>
+
+<body>
+  
+<body>
+  <nav class="navbar navbar-expand-lg navbar-success bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="?">
+        <!-- <img src="templates/image/ICON.png" alt="" class="icon" srcset=""/> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a href="?app=product">
+                <input class="active btn" type="button" aria-current="page" value="สินค้า">
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="?">
+                <input class="active btn" type="button" aria-current="page" value="ติดต่อเรา">
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="?">
+                <input class="active btn" type="button" aria-current="page" value="ช่วยเหลือ">
+            </a>
+        </li>
+      </ul>
+      <form class="d-flex">
+                      <a class="btn btn-danger m-1" href="?app=add_product" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add product">
+                <i class="fas fa-folder-plus"></i>
+            </a>
+                                <a class="btn btn-warning m-1" href="?app=account" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a class="btn btn-warning m-1" href="?app=account" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your account">
+                <i class="far fa-user"></i>
+            </a>
+        </form>
+            </div>
+  </div>
+</nav>
+<script>
+
+
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
+}
+
+
+</script>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark fade-in">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">ตัวเลือก</span>
+                </a>
+                <ul class="navbar-nav" style="width: -webkit-fill-available;">
+
+                    <li class="nav-item btn_hover btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=CPU" >CPU</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=MAINBOARD">Mainboard</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=VGA">VGA</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=RAM">RAM</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=HDD">HDD</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=SSD">SSD</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=POWER_SUPPLY">Power Supply</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=CASE">Case</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=CPU_COOLLER">CPU Cooler</a>
+                    </li>
+
+                    <li class="nav-item  btn_hover btn_filter ">
+                        <a class="nav-link active" aria-current="page" href="?app=product&product_group=MONITOR">Monitor</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3">
+        <table class="display" id="myTable" style="width:100%">
+           <thead>
+               <tr>
+                   <th>No.</th>
+                   <th>Product Image</th>
+                   <th>Product Name</th>
+                   <th>Product Price</th>
+                   <th>Action</th>
+               </tr>
+           </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; "><h3>1</h3></td>
+                    <td><img src="https://www.jib.co.th/img_master/product/original/20210825104649_43471_21_2.jpg" alt="" srcset="" style="width:20vh;"></td>
+                    <td style="text-align: left; vertical-align: middle; ">AM4 AMD RYZEN 5 5600X</td>
+                    <td style="text-align: center; vertical-align: middle; ">10,300</td>
+                    <td style="text-align: center; vertical-align: middle; "><button class="btn btn-success">Add To Cart</button></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; "><h3>2</h3></td>
+                    <td><img src="https://www.jib.co.th/img_master/product/original/20210825104649_43471_21_2.jpg" alt="" srcset="" style="width:20vh;"></td>
+                    <td style="text-align: left; vertical-align: middle; ">AMD Ryzen™ 5 3600</td>
+                    <td style="text-align: center; vertical-align: middle; ">5,780</td>
+                    <td style="text-align: center; vertical-align: middle; "><button class="btn btn-success">Add To Cart</button></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; "><h3>3</h3></td>
+                    <td><img src="https://www.intel.com/content/dam/www/global/ark/badges/208228_128.gif/jcr:content/renditions/_64.gif" alt="" srcset="" style="width:20vh;"></td>
+                    <td style="text-align: left; vertical-align: middle; ">Intel® Core™ i5-1135G7</td>
+                    <td style="text-align: center; vertical-align: middle; ">5,900</td>
+                    <td style="text-align: center; vertical-align: middle; "><button class="btn btn-success">Add To Cart</button></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; "><h3>4</h3></td>
+                    <td><img src="https://img.advice.co.th/images_nas/pic_product4/A0133107/A0133107OK_BIG_1.jpg" alt="" srcset="" style="width:20vh;"></td>
+                    <td style="text-align: left; vertical-align: middle; ">RTX3090/24GB GIGABYTE GAMING (OC/D6)</td>
+                    <td style="text-align: center; vertical-align: middle; ">87,575</td>
+                    <td style="text-align: center; vertical-align: middle; "><button class="btn btn-success">Add To Cart</button></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; "><h3>5</h3></td>
+                    <td><img src="https://img.advice.co.th/images_nas/pic_product4/A0094050/A0094050OK_BIG_1.jpg" alt="" srcset="" style="width:20vh;"></td>
+                    <td style="text-align: left; vertical-align: middle; ">GTX1050TI/4GB GIGABYTE (OC/D5)</td>
+                    <td style="text-align: center; vertical-align: middle; ">5,970</td>
+                    <td style="text-align: center; vertical-align: middle; "><button class="btn btn-success">Add To Cart</button></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; vertical-align: middle; "><h3>6</h3></td>
+                    <td><img src="https://img.advice.co.th/images_nas/pic_product4/A0136894/A0136894OK_BIG_1.jpg" alt="" srcset="" style="width:20vh;"></td>
+                    <td style="text-align: left; vertical-align: middle; ">Monitor 31.5' AOC Q32V3S/WS (IPS, HDMI, DP) 2K 75H</td>
+                    <td style="text-align: center; vertical-align: middle; ">8,890</td>
+                    <td style="text-align: center; vertical-align: middle; "><button class="btn btn-success">Add To Cart</button></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script></body>
+<footer>
+    <script>
+
+function loadUrl() {
+    let ele = document.getElementById("product_image").value;
+    let target = document.getElementById("loadImg")
+
+    target.src = ele;
+
+}
+
+function add_product() {
+        let product_name = document.getElementById('product_name').value
+        let product_detail = document.getElementById('product_detail').value
+        let product_price = document.getElementById('product_price').value
+        let product_group = document.getElementById('product_group').value
+        let product_brand = document.getElementById('product_brand').value
+        let product_image = document.getElementById('product_image').value
+        let promotion = document.getElementById('promotion').checked
+
+        console.log(product_name);
+        console.log(product_detail);
+        console.log(product_price);
+        console.log(product_group);
+        console.log(product_brand);
+        console.log(product_image);
+        console.log(promotion);
+
+        if (product_name && product_detail && product_group && product_price && product_brand && product_image) {
+            fetch('models/ProductModel.php',{
+                method: 'post',
+                body: JSON.stringify({
+                    action:'add_product',
+                    product_name: product_name,
+                    product_detail: product_detail,
+                    product_price: product_price,
+                    product_group: product_group,
+                    product_brand: product_brand,
+                    product_image: product_image,
+                    promotion: promotion,
+                    })
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if(data){
+                        alert("เพิ่มสินค้าสำเร็จ!")
+                        window.location.reload();
+                    }else{
+                        alert("ขออภัยเกิดข้อผิดพลาดระหว่างทำการ")
+                    }
+                    console.log(data);
+            })
+        }else{
+            alert("กรุณากรอกข้อมูลให้ครบ!")
+        }
+    }
+    
+</script>
+</footer>
+<footer>
+    <script>
+    var _userData;
+
+    function loginUser() {
+        let _username = document.getElementById('username').value
+        let _password = document.getElementById('password').value
+
+        fetch('models/UserModel.php',{
+            method: 'post',
+            body: JSON.stringify({
+                action:'login',
+                username: _username,
+                password: _password
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if(data.user_id){
+                window.location.href = "?app=dashboard";
+                window.location.reload()
+            }else{
+                alert("รหัสผ่านไม่ถูกต้อง!")
+            }
+        })
+    }
+
+    function registerUser() {
+        let _username = document.getElementById('username').value
+        let _password = document.getElementById('password').value
+        let user_name = document.getElementById('user_name').value
+        let user_phone = document.getElementById('user_phone').value
+        let user_mail = document.getElementById('user_mail').value
+        let user_address = document.getElementById('user_address').value
+
+        if (_username && _password && user_name && user_phone && user_mail && user_address) {
+            fetch('models/UserModel.php',{
+                method: 'post',
+                body: JSON.stringify({
+                    action:'register',
+                    username: _username,
+                    password: _password,
+                    user_name: user_name,
+                    user_phone: user_phone,
+                    user_mail: user_mail,
+                    user_address: user_address,
+                    })
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if(data){
+                        window.location.href = "?app=login";
+                    }else{
+                        alert("ขออภัยเกิดข้อผิดพลาดระหว่างทำการ")
+                    }
+                    console.log(data);
+            })
+        }else{
+            alert("กรุณากรอกข้อมูลให้ครบ!")
+        }
+    }
+
+</script></footer>
+</html>

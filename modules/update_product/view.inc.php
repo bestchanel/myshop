@@ -88,7 +88,7 @@ var myInput = document.getElementById('myInput')
 var product_id = "<?php echo $_GET['product_id']?>";
 
 myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
+  //myInput.focus()
 })
 
 function updateProduct() {

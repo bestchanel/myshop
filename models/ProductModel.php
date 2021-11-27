@@ -123,4 +123,13 @@
         
     }
 
+    function deleteProductByID($product_id){
+        $sql = "DELETE FROM `tbl_product` WHERE product_id = ".$product_id."";
+        
+        $statement = $GLOBALS['URL']->prepare($sql);
+        $statement->execute();
+
+        return $product_id;
+    }
+
 ?>

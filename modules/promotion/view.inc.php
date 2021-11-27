@@ -95,7 +95,7 @@ function numberWithCommas(x) {
             <tbody>
                 <?php if(count($data) > 0){?>
                         <?php for ($i=0; $i < count($data); $i++) { ?>
-                            <tr>
+                            <tr id="tr_<?php echo $data[$i]['product_id']?>">
                                 <td style="text-align: center; vertical-align: middle; ">
                                     <h3><?php echo ($i+1)?></h3>
                                 </td>
@@ -120,7 +120,7 @@ function numberWithCommas(x) {
 
                                     <?php if ($_SESSION['user_data']['user_role'] != 'Member') { 
                                             if(($_SESSION['user_data']['user_role'] == 'Sellman' && $_SESSION['user_data']['user_id'] == $data[$i]['product_addby']) || $_SESSION['user_data']['user_role'] == 'Admin'){?>
-                                            <a class="btn btn-danger m-1">
+                                            <a class="btn btn-danger m-1" onclick="removeProduct(<?php echo $data[$i]['product_id']?>)">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                             <a class="btn btn-secondary m-1" href="?app=update_product&product_id=<?php echo $data[$i]['product_id']?>">

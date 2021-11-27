@@ -274,7 +274,7 @@ function loadDataChartModal(filter) {
     // console.log('g_brand = '+g_brand);
     // console.log('filter = '+filter);
     function drawStuff() {
-        fetch('contollers/getStaticByBrand.php',{
+        fetch('controllers/getStaticByBrand.php',{
         method: 'post',
         body: JSON.stringify({
             brand: g_brand,

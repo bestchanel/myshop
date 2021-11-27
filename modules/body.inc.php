@@ -7,7 +7,7 @@
 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script>
 function addToCart(product_id) {
-    fetch('contollers/insertProductToCard.php', {
+    fetch('controllers/insertProductToCard.php', {
         method: 'post',
         body: JSON.stringify({
             product_id : product_id
@@ -21,7 +21,7 @@ function addToCart(product_id) {
 }
 
 function loadItemToIconCart(){
-    fetch('contollers/loadItemToIconCart.php')
+    fetch('controllers/loadItemToIconCart.php')
     .then((res)=> res.json())
     .then((data)=>{
         $(".top_menu_cart").html(data+'<i class="fas fa-shopping-cart"></i>');

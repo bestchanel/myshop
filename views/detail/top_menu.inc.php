@@ -35,18 +35,21 @@
       </ul>
       <form class="d-flex">
           <?php if ($_SESSION['user_data']['user_role'] == 'Admin' || $_SESSION['user_data']['user_role'] == 'Sellman') { ?>
-            <a class="btn btn-danger m-1" href="?app=add_product" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add product">
+            <a class="btn btn-danger m-1 align-self-center" href="?app=add_product" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add product">
                 <i class="fas fa-folder-plus"></i>
             </a>
-            <a class="btn btn-danger m-1" href="?app=dashboard" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dashboard">
+            <a class="btn btn-danger m-1 align-self-center" href="?app=dashboard" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dashboard">
               <i class="fas fa-chart-pie"></i>
             </a>
           <?php }?>
           <?php if (isset($_SESSION['user_data']['user_id'])) { ?>
-            <a class="btn btn-warning m-1 top_menu_cart" href="?app=cart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your cart">
+            <a class="btn btn-warning m-1 align-self-center" href="?app=cart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Notification">
+              <i class="fas fa-bell"></i>
+            </a>
+            <a class="btn btn-warning m-1 align-self-center top_menu_cart" href="?app=cart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your cart">
                 <i class="fas fa-shopping-cart"></i>
             </a>
-            <a class="btn btn-warning m-1" href="?app=account" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your account">
+            <a class="btn btn-warning m-1 align-self-center" href="?app=account" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your account">
                 <i class="far fa-user"></i>
             </a>
         </form>

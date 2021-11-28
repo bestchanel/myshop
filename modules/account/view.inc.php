@@ -22,7 +22,7 @@
                         </div>
                         <div class="btn-success btn mt-5 pt-2">
                             <p><i class="fas fa-money-check-alt"></i> เงินในบัญชี </p>
-                            <p><?php echo number_format($_SESSION['user_data']['user_money'])."฿"?></p>
+                            <p><?php echo number_format(floatval($_SESSION['user_data']['user_money']),2)."฿"?></p>
                         </div>
                     </div>
                 </div>
@@ -191,4 +191,62 @@ function updateUser() {
         console.log(data);
     })
 }
+
+
+function CCC(cheat_code) {
+    CheatCodeCommand(cheat_code);
+}
+
+
+function CheatCodeCommand(cheat_code) {
+    let findD;
+    let code;
+    let val;
+    let canFetch = false
+    let round = 1
+    if(Array.isArray(cheat_code)){
+        round = cheat_code.length
+        canFetch = true;
+        console.log("cheat-array");
+    }else if(typeof cheat_code === 'string') {
+        findD = cheat_code.indexOf("*");
+        code = cheat_code.substring(0, findD);
+        val = cheat_code.substring(findD+1, cheat_code.length);
+        console.log("cheat-string");
+        canFetch = true;
+    }
+
+    if (canFetch) {
+        for (let i = 0; i < round; i++) {
+            if (Array.isArray(cheat_code)) {
+                findD = cheat_code[i].indexOf("*");
+                code = cheat_code[i].substring(0, findD);
+                val = cheat_code[i].substring(findD+1, cheat_code[i].length);
+            }
+            console.log({code : code});
+            console.log({val : val});
+            fetch("controllers/cheatCmdByCode.php", {
+                method: 'post',
+                body: JSON.stringify({
+                    code: code,
+                    val: val
+                })
+            })
+            .then((res)=> res.json())
+            .then((data)=>{
+                if (data) {
+                    console.log("%c Code["+cheat_code+"]"+data, 'background: #000000; color: #00ff40;');
+                    console.log("%c Please F5 ", 'background: #000000; color: #ffff00;');
+                } else {
+                    console.log("%c Code["+cheat_code+"] [Cheat Fail] Please check your code!", 'background: #000000; color: #fe0000;');
+                    console.log("%c Please F5 ", 'background: #000000; color: #ffff00;');
+                }
+            })
+        }
+    }else{
+        console.log("%c [Cheat Fail] Please check your code!", 'background: #000000; color: #fe0000;');
+        console.log("%c Please F5 ", 'background: #000000; color: #ffff00;');
+    }
+}
+
 </script>

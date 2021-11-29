@@ -78,6 +78,17 @@
                             </div>
                         </div>
 
+                        <div class="col-md-12 row mt-2">
+                            <div class="col-md-10 p-0">
+                                <input type="number" class="form-control" value="<?php echo $data[$i]['user_money']?>" name="money_<?php echo $data[$i]['user_id']?>" id="money_<?php echo $data[$i]['user_id']?>">
+                            </div>
+                            <div class="col-md-2 p-0">
+                                <button class="btn btn-secondary mt-auto" onclick="updateUserByAdmin(<?php echo $data[$i]['user_id']?>, 'user_money', $('#money_<?php echo $data[$i]['user_id']?>').val())">
+                                    <i class="fas fa-coins"></i>
+                                </button>
+                            </div>
+                        </div>
+
                     </td>
                 </tr>
 

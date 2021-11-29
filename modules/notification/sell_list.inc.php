@@ -21,6 +21,9 @@
                     ซื้อโดย
                 </th>
                 <th>
+                    ที่อยู่ของผู้ซื้อ
+                </th>
+                <th>
                     หมายเลขใบเสร็จ
                 </th>
                 <th>
@@ -64,6 +67,9 @@
                         <?php echo $sell[$i]['user_name']?>
                     </td>
                     <td>
+                        <?php echo $sell[$i]['user_address']?>
+                    </td>
+                    <td>
                         <?php echo $sell[$i]['bill_code']?>
                     </td>
                     <td>
@@ -80,8 +86,8 @@
                     <td>
                         <?php if ($buy[$i]['noti_seller_accept']) {?>
 
-                        <button class="btn btn-success" disabled data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accepted" >
-                            Accepted
+                        <button class="btn btn-danger" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_seller_accept', 0)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accepted" >
+                            Cancel
                         </button>
 
                         <?php }else{?>

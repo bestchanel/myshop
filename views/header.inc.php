@@ -1,5 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ITu | <?php echo strtoupper(str_replace("_", " ", $_GET['app']))?></title>
+<link rel="icon" type="image/png" href="templates/image/ICON.png"/>
 
 <link rel="stylesheet" href="templates/css/main.css">
 <link rel="stylesheet" href="templates/fontawesome/css/all.css">

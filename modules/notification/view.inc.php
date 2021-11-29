@@ -5,7 +5,7 @@
         </h1>
     </div>
     <div class="col-md-12 row mt-5">
-        <div class="card col-md-8">
+        <div class="card col-md-10">
             <div id="table_name">
                 <!-- Table name -->
             </div>
@@ -20,7 +20,7 @@
         </div>
 
         <?php if ($_SESSION['user_data']['user_role'] != 'Member') {?>
-            <div class="card col-md-4 p-5">
+            <div class="card col-md-2 p-5">
                 <h4 style="border-bottom-style: solid;">
                     เลือกรายการ
                 </h4>

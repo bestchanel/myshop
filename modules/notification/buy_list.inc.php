@@ -21,6 +21,9 @@
                     ขายโดย
                 </th>
                 <th>
+                    เบอร์โทรติดต่อผู้ขาย
+                </th>
+                <th>
                     หมายเลขใบเสร็จ
                 </th>
                 <th>
@@ -61,6 +64,9 @@
                     </td>
                     <td>
                         <?php echo $buy[$i]['user_name']?>
+                    </td>
+                    <td>
+                        <?php echo $buy[$i]['user_phone']?>
                     </td>
                     <td>
                         <?php echo $buy[$i]['bill_code']?>

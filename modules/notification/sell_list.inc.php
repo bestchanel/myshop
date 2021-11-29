@@ -24,6 +24,9 @@
                     ที่อยู่ของผู้ซื้อ
                 </th>
                 <th>
+                    เบอร์โทรติดต่อผู้ซื้อ
+                </th>
+                <th>
                     หมายเลขใบเสร็จ
                 </th>
                 <th>
@@ -68,6 +71,9 @@
                     </td>
                     <td>
                         <?php echo $sell[$i]['user_address']?>
+                    </td>
+                    <td>
+                        <?php echo $sell[$i]['user_phone']?>
                     </td>
                     <td>
                         <?php echo $sell[$i]['bill_code']?>

@@ -148,11 +148,12 @@
                 <p>เบอร์โทรติดต่อ : <?php echo $_SESSION['user_data']['user_phone']?></p>
                 <p>อีเมล : <?php echo $_SESSION['user_data']['user_mail']?></p>
                 <p>ที่อยู่ของคุณ : <?php echo $_SESSION['user_data']['user_address']?></p>
+                <p>ชี้แจ้ง : หากคุณต้องการยกเลิกสินค้ากรุณาติดต่อผู้ขาย เพื่อทำการขออการคืนเงิน เพราะทางเว็บจะไม่รับผิดชอบใดๆทั้งสิ้น</p>
             </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-        <button type="button" class="btn btn-primary" disabled onclick="BuyProduct()" id="btn_buy">สั่งซื้อ</button>
+        <button type="button" class="btn btn-primary" disabled onclick="BuyProduct()" id="btn_buy">ยินยอมและสั่งซื้อ</button>
       </div>
     </div>
   </div>

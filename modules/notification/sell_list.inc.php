@@ -90,20 +90,23 @@
                         }?>
                     </td>
                     <td>
+                        <div class="text-center">
+
                         <?php if ($buy[$i]['noti_seller_accept']) {?>
 
                         <button class="btn btn-danger" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_seller_accept', 0)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accepted" >
-                            Cancel
+                            <i class="far fa-window-close"></i>
                         </button>
 
                         <?php }else{?>
 
                         <button class="btn btn-primary" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_seller_accept', 1)">
-                            Accept
+                            <i class="fas fa-check"></i>
                         </button>
 
                         <?php }?>
-
+                        
+                        </div>
                     </td>
                 </tr>
             <?php }?>

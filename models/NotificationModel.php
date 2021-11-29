@@ -50,6 +50,16 @@
         return true;
     }
 
+    function notificationDelete($id){
+
+        $sql = "DELETE FROM `tbl_notification` WHERE `tbl_notification`.`not_id` = ".$id."";
+
+        $statement = $GLOBALS['URL']->prepare($sql);
+        $statement->execute();
+
+        return true;
+    }
+
     function getProductNotificationBySellerID($seller_id){
         
         $sql = "SELECT a.*, c.*, b.product_name, b.product_detail, b.product_group, b.product_brand, b.product_image, d.dis_code, d.dis_detail

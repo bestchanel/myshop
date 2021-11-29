@@ -83,20 +83,26 @@
                         }?>
                     </td>
                     <td>
-                        <?php if ($buy[$i]['noti_buyer_accept']) {?>
+                        <div class="text-center">
 
-                            <button class="btn btn-danger" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_buyer_accept', 0)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accepted" >
-                                Cancel
+                            <?php if ($buy[$i]['noti_buyer_accept']) {?>
+                                
+                            <button class="btn btn-danger m-1" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_buyer_accept', 0)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Accepted" >
+                                <i class="far fa-window-close"></i>
                             </button>
-
+                            
                             <?php }else{?>
 
-                            <button class="btn btn-primary" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_buyer_accept', 1)">
-                                Accept
+                            <button class="btn btn-primary m-1" onclick="acceptProduct(<?php echo $buy[$i]['not_id']?>, 'noti_buyer_accept', 1)">
+                                <i class="fas fa-check"></i>
                             </button>
-
-                        <?php }?>
-
+                            <button class="btn btn-danger m-1" onclick="$('#btn_cancel_product').val('<?php echo $buy[$i]['not_id']?>')" data-bs-toggle="modal" data-bs-target="#myModal">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            
+                            <?php }?>
+                            
+                        </div>
                     </td>
                 </tr>
             <?php }?>

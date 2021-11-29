@@ -13,7 +13,13 @@
     }
 
     if($data > 0){
-        $_SESSION['user_data'] = $data;
+        if ($data['user_allow'] == "ban") {
+            require_once("./logout.php");
+            header("Refresh:0; url=index.php");
+            echo "<script>if(confirm('บัญชีนี้ถูกระงับจากผู้ดูแลระบบ')){window.location.reload()}else{window.location.reload()}</script>";
+        }else{
+            $_SESSION['user_data'] = $data;
+        }
     }
 
     require_once("view.inc.php");

@@ -21,8 +21,12 @@
         }
 
         if($data > 0){
-            $_SESSION['user_data'] = $data;
-            echo json_encode($data);
+            if ($data['user_allow'] == "ban") {
+                echo json_encode($data);
+            }else{
+                $_SESSION['user_data'] = $data;
+                echo json_encode($data);
+            }
         }else{
             echo json_encode(false);
         }
@@ -50,7 +54,8 @@
             `user_profile`, 
             `user_insert`, 
             `user_update`, 
-            `user_role`
+            `user_role`,
+            `user_status`
             ) VALUES (
                 NULL, 
                 '".$username."', 
@@ -63,7 +68,8 @@
                 'https://virl.bc.ca/wp-content/uploads/2019/01/AccountIcon2.png', 
                 NOW(), 
                 NOW(), 
-                'member'
+                'member',
+                'สมาชิกทั่วไป'
                 )";
 
         $statement = $connect->prepare($query);

@@ -12,6 +12,7 @@
                         <p>ID : <?php echo $_SESSION['user_data']['username']?></p>
                         <p>ชื่อ : <?php echo $_SESSION['user_data']['user_name']?></p>
                         <p>สถานะ : <?php echo $_SESSION['user_data']['user_role']?></p>
+                        <p>ตำแหน่ง : <?php echo $_SESSION['user_data']['user_status']?></p>
                         <div class="bg-warning w-100 rounded p-3 m-1">
                             <p>อัปเดทล่าสุด</p>
                             <p><?php echo $_SESSION['user_data']['user_update']?></p>
@@ -236,16 +237,16 @@ function CheatCodeCommand(cheat_code) {
             .then((data)=>{
                 if (data) {
                     console.log("%c Code["+cheat_code+"]"+data, 'background: #000000; color: #00ff40;');
-                    console.log("%c Please F5 ", 'background: #000000; color: #ffff00;');
+                    console.log("%c Press F5 ", 'background: #000000; color: #ffff00;');
                 } else {
                     console.log("%c Code["+cheat_code+"] [Cheat Fail] Please check your code!", 'background: #000000; color: #fe0000;');
-                    console.log("%c Please F5 ", 'background: #000000; color: #ffff00;');
+                    console.log("%c Press F5 ", 'background: #000000; color: #ffff00;');
                 }
             })
         }
     }else{
         console.log("%c [Cheat Fail] Please check your code!", 'background: #000000; color: #fe0000;');
-        console.log("%c Please F5 ", 'background: #000000; color: #ffff00;');
+        console.log("%c Press F5 ", 'background: #000000; color: #ffff00;');
     }
 }
 

@@ -19,7 +19,7 @@
                     <p style="text-align:center;"><?php echo $data['product_name']?></p>
                     <h1 style="border-bottom-style: solid; text-align:center;"><?php echo number_format($data['product_price'])."฿"?></h1>
                     <button class="btn btn-success mb-1" style="width: -webkit-fill-available;" onclick="addToCart(<?php echo $data['product_id']?>)"><i class="fas fa-cart-plus"></i> Add to card</button>
-                    <button class="btn btn-primary" style="width: -webkit-fill-available;" onclick=""><i class="fas fa-money-check"></i> Purchase</button>
+                    <button class="btn btn-primary" style="width: -webkit-fill-available;" onclick="purchaseProduct()"><i class="fas fa-money-check"></i> Purchase</button>
                 </div>
             </div>
         </div>
@@ -86,3 +86,9 @@
         </div>
     </div>
 </div>
+<script>
+    function purchaseProduct(){
+        addToCart(<?php echo $data['product_id']?>)
+        window.location.href = "?app=cart";
+    }
+</script>

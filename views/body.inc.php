@@ -4,14 +4,14 @@
 ?>
 </div>
 <div class="h-100">
-    <div class="col-md-12">
-        <div class="card col-md-4 m-auto border border-secondary">
-            <div class="card-body m-auto">
+   
                 <?php
                     if($_GET['app'] == 'register'){
                         require_once('detail/register.inc.php');
-                    }else{
+                    }elseif($_GET['app'] == 'login'){
                         require_once('detail/login.inc.php');
+                    }else{
+                        require_once('home/index.inc.php');
                     }
                 ?>
             </div>

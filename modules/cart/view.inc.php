@@ -152,7 +152,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
-        <button type="button" class="btn btn-primary" disabled onclick="console.log('Buy!!')" id="btn_buy">สั่งซื้อ</button>
+        <button type="button" class="btn btn-primary" disabled onclick="BuyProduct()" id="btn_buy">สั่งซื้อ</button>
       </div>
     </div>
   </div>
@@ -163,6 +163,8 @@ var myModal = document.getElementById('myModal')
 var myInput = document.getElementById('myInput')
 var promo_code = "";
 var dis_data;
+var product_arr = [];
+var po_code;
 let total_receipt = <?php echo $receipt_detail['product_price']?>
 
 $(document).ready( function () {
@@ -175,8 +177,9 @@ myModal.addEventListener('shown.bs.modal', function () {
 
 poCodeGenerator();
 
-function updateItemInCart(product_id, product_count, action) {
+function updateItemInCart(product_id, product_count, action, ask) {
     let code = $("#DisCode").val();
+    let can_ask;
     // console.log('product_id ='+product_id);
     // console.log('product_count ='+product_count);
     // console.log('action ='+action);
@@ -208,7 +211,12 @@ function updateItemInCart(product_id, product_count, action) {
             })
             
         }else if(action == 'remove'){
-            if (confirm("คุณแน่ใจหรือไม่ที่จะลบสินค้าชิ้นนี้ออกจากตะกร้า")) {
+            if (ask) {
+                can_ask = true
+            } else {
+                can_ask = confirm("คุณแน่ใจหรือไม่ที่จะลบสินค้าชิ้นนี้ออกจากตะกร้า")
+            }
+            if (can_ask) {
                 fetch("controllers/deleteItemInCart.php", {
                     method : 'post',
                     body: JSON.stringify({
@@ -255,9 +263,13 @@ function numberWithCommas(x) {
     return x;
 }
 
-function discountCode() {
+function discountCode(input) {
     let code = $("#DisCode").val();
     let show_promo = 0;
+    let val_2 = total_receipt;
+    if (input) {
+        val_2 = parseFloat(input);
+    }
     if (code) {
         fetch("controllers/getDiscountCode.php", {
             method: 'post',
@@ -268,43 +280,55 @@ function discountCode() {
         .then((res)=>res.json())
         .then((data)=>{
             if(data){
-                $("#alertDisCode").html("("+data.dis_detail+")");
-                $("#alertDisCode").addClass("text-success");
-                $("#alertDisCode").removeClass("text-danger");
                 if (data.dis_method == "+") {
-                    show_promo = total_receipt + parseFloat(data.dis_value);
+                    show_promo = parseFloat(val_2) + parseFloat(data.dis_value);
                 }
                 if (data.dis_method == "-") {
-                    show_promo = total_receipt - parseFloat(data.dis_value);
+                    show_promo = parseFloat(val_2) - parseFloat(data.dis_value);
                 }
                 if (data.dis_method == "*") {
-                    show_promo = total_receipt * parseFloat(data.dis_value);
+                    show_promo = parseFloat(val_2) * parseFloat(data.dis_value);
                 }
                 if (data.dis_method == "/") {
-                    show_promo = total_receipt / parseFloat(data.dis_value);
+                    show_promo = parseFloat(val_2) / parseFloat(data.dis_value);
                 }
-                $("#total_end").html("ราคา : "+numberWithCommas(show_promo)+"฿");
-                $("#total_end_h").val(show_promo);
+                if (input) {
+                    return show_promo;
+                }else{
+                    $("#alertDisCode").html("("+data.dis_detail+")");
+                    $("#alertDisCode").addClass("text-success");
+                    $("#alertDisCode").removeClass("text-danger");
+                    $("#total_end").html("ราคา : "+numberWithCommas(show_promo)+"฿");
+                    $("#total_end_h").val(show_promo);
+                }
                 
                 dis_data = data;
                 promo_code = data.dis_code
             }else{
-                $("#alertDisCode").html("โค้ดไม่ถูกต้อง");
-                $("#alertDisCode").addClass("text-danger");
-                $("#alertDisCode").removeClass("text-success");
-                $("#total_end").html("ราคา : "+numberWithCommas(total_receipt)+"฿");
-                $("#total_end_h").val(total_receipt);
-                promo_code = false;
-                dis_data = false;
+                if (input) {
+                    return input;
+                } else {
+                    $("#alertDisCode").html("โค้ดไม่ถูกต้อง");
+                    $("#alertDisCode").addClass("text-danger");
+                    $("#alertDisCode").removeClass("text-success");
+                    $("#total_end").html("ราคา : "+numberWithCommas(total_receipt)+"฿");
+                    $("#total_end_h").val(total_receipt);
+                    promo_code = false;
+                    dis_data = false;
+                }
             }
             
         })
     }else{
-        $("#alertDisCode").html("");
-        $("#alertDisCode").removeClass("text-danger");
-        $("#alertDisCode").removeClass("text-success");
-        $("#total_end").html("ราคา : "+numberWithCommas(total_receipt)+"฿");
-        $("#total_end_h").val(total_receipt);
+        if (input) {
+            return input;
+        } else {   
+            $("#alertDisCode").html("");
+            $("#alertDisCode").removeClass("text-danger");
+            $("#alertDisCode").removeClass("text-success");
+            $("#total_end").html("ราคา : "+numberWithCommas(total_receipt)+"฿");
+            $("#total_end_h").val(total_receipt);
+        }
     }
 }
 
@@ -327,6 +351,7 @@ function productCheck(input, type) {
 
 function openBill(ele) {
 
+    let arr_p_id = [];
     let show_promo = 0;
     let table_str = "";
     let table = $("#bill_receipt");
@@ -338,6 +363,7 @@ function openBill(ele) {
     let product_id = $(ele).closest("tr").children("td").children("#product_id")[0];
     let product_img = $(ele).closest("tr").children("td").children("img")[0];
     let product_name = $(ele).closest("tr").children("td").children("p").children("#product_list_name_"+product_id.value)[0];
+    let product_count = $(ele).closest("tr").children("td").children(".row").children(".col-8").children("#product_count_"+product_id.value)[0];
     let product_price = $(ele).closest("tr").children("td").children("p").children("#product_list_price_"+product_id.value)[0];
     let product_total = $(ele).closest("tr").children("td").children("p").children("#product_list_total_"+product_id.value)[0];
     
@@ -369,11 +395,12 @@ function openBill(ele) {
     }else{
         promo_alert = "";
     }
-
+    arr_p_id = [product_id.value]
+    product_arr = arr_p_id;
     table_str += '<tr id="'+product_id.value+'" class="bill_row">'+
         '<td class="p-5">'+
             '<h3>'+1+'</h3>'+
-            '<input type="text" id="product_id" hidden value="'+product_id.value+'" />'+
+            '<input type="text" id="table_product_id_'+product_id.value+'" hidden value="'+product_id.value+'" />'+
         '</td>'+
         '<td>'+
             '<img style="width:15vh;" src="'+product_img.getAttribute("src")+'">'+
@@ -389,7 +416,8 @@ function openBill(ele) {
         '</td>'+
         '<td class="p-5">'+
             numberWithCommas(product_total.value)+
-            '<input type="text" id="product_total" hidden value="'+product_total.value+'" />'+
+            '<input type="text" id="table_product_total_'+product_id.value+'" hidden value="'+product_total.value+'" />'+
+            '<input type="text" id="table_product_count_'+product_id.value+'" hidden value="'+product_count.value+'" />'+
         '</td>'+
     '</tr>';
 
@@ -404,8 +432,8 @@ function openBill(ele) {
                 promo_alert+
             '</p>'+
             '<h4>'+numberWithCommas(show_promo)+'฿</h4>'+
-            '<input type="text" id="all_product_total" hidden value="'+show_promo+'" />'+
-            '<input type="text" id="promo_code" hidden value="'+promo_code.value+'" />'+
+            '<input type="text" id="table_all_product_total" hidden value="'+show_promo+'" />'+
+            '<input type="text" id="table_promo_code" hidden value="'+promo_code.value+'" />'+
         '</td>'+
     '</tr>';
 
@@ -415,7 +443,7 @@ function openBill(ele) {
     // console.log(price_total.value);
     // console.log(user_money.value);
 
-    if((price_total.value <= user_money.value) && (tick > 0)){
+    if(parseFloat(user_money.value) >= parseFloat(price_total.value)){
         $("#btn_buy").removeAttr("disabled");
     }else{
         $("#btn_buy").attr('disabled', true);
@@ -424,6 +452,7 @@ function openBill(ele) {
 }
 
 function openBills() {
+    let arr_p_id = [];
     let product_lists_arr = $('[name=product_check]');
     let price_total = document.getElementById("total_end_h")
     let user_money = document.getElementById("user_money")
@@ -434,6 +463,7 @@ function openBills() {
     let product_ele;
     let product_id;
     let product_img;
+    let product_count;
     let product_name;
     let product_price;
     let product_total;
@@ -452,11 +482,14 @@ function openBills() {
             product_name = $("#product_list_name_"+product_id.value)
             product_price = $("#product_list_price_"+product_id.value)
             product_total = $("#product_list_total_"+product_id.value)
+            product_count = $("#product_count_"+product_id.value)
 
+            arr_p_id.push(product_id.value);
+            product_arr = arr_p_id;
             table_str += '<tr id="'+product_id.value+'" class="bill_row">'+
                 '<td class="p-5">'+
                     '<h3>'+(i+1)+'</h3>'+
-                    '<input type="text" id="product_id" hidden value="'+product_id.value+'" />'+
+                    '<input type="text" id="table_product_id_'+product_id.value+'" hidden value="'+product_id.value+'" />'+
                 '</td>'+
                 '<td>'+
                     '<img style="width:15vh;" src="'+product_img.getAttribute("src")+'">'+
@@ -472,7 +505,8 @@ function openBills() {
                 '</td>'+
                 '<td class="p-5">'+
                     numberWithCommas(product_total.val())+
-                    '<input type="text" id="product_total" hidden value="'+product_total.val()+'" />'+
+                    '<input type="text" id="table_product_total_'+product_id.value+'" hidden value="'+product_total.val()+'" />'+
+                    '<input type="text" id="table_product_count_'+product_id.value+'" hidden value="'+product_count.val()+'" />'+
                 '</td>'+
             '</tr>';
             tick++;
@@ -488,19 +522,21 @@ function openBills() {
                     promo_alert+
                 '</p>'+
                 '<h4>'+numberWithCommas(price_total.value)+'฿</h4>'+
-                '<input type="text" id="all_product_total" hidden value="'+price_total.value+'" />'+
-                '<input type="text" id="promo_code" hidden value="'+promo_code.value+'" />'+
+                '<input type="text" id="table_all_product_total" hidden value="'+price_total.value+'" />'+
+                '<input type="text" id="table_promo_code" hidden value="'+promo_code.value+'" />'+
             '</td>'+
         '</tr>';
     table.html(table_str);
 
-    console.log(price_total.value);
-    console.log(user_money.value);
+    console.log(user_money.value >= price_total.value);
+    console.log(tick > 0);
 
-    if((price_total.value <= user_money.value) && (tick > 0)){
-        $("#btn_buy").removeAttr("disabled");
+    if((parseFloat(user_money.value) >= parseFloat(price_total.value)) && (tick)){
+            $("#btn_buy").removeAttr("disabled");
+            console.log("disable");
     }else{
         $("#btn_buy").attr('disabled', true);
+        console.log("enable");
     }
 }
 
@@ -526,8 +562,9 @@ function updateTotal() {
 }
 
 function poCodeGenerator() {
-    $("#PO_code").html("B-"+makeid(18))
-    $("#new_po_code").val("B-"+makeid(18))
+    po_code = "B-"+makeid(18)
+    $("#PO_code").html(po_code)
+    $("#new_po_code").val(po_code)
 }
 
 function makeid(length) {
@@ -539,6 +576,75 @@ function makeid(length) {
  charactersLength)));
    }
    return result.join('');
+}
+
+function BuyProduct(){
+    let data = [];
+    let dis_code_val;
+    let show_promot = 0
+    let product_total_price_val = 0
+    let log_total = 0
+
+    for (let i = 0; i < product_arr.length; i++) {
+        product_total_price_val = $("#table_product_total_"+product_arr[i]).val();
+        if(dis_data){
+            dis_code_val = dis_data.dis_code;
+
+            if (dis_data.dis_method == "+") {
+                show_promo = parseFloat(product_total_price_val) + parseFloat(dis_data.dis_value);
+            }
+            if (dis_data.dis_method == "-") {
+                show_promo = parseFloat(product_total_price_val) - parseFloat(dis_data.dis_value);
+            }
+            if (dis_data.dis_method == "*") {
+                show_promo = parseFloat(product_total_price_val) * parseFloat(dis_data.dis_value);
+            }
+            if (dis_data.dis_method == "/") {
+                show_promo = parseFloat(product_total_price_val) / parseFloat(dis_data.dis_value);
+            }
+            console.log('show_promo = '+show_promo);
+            console.log('dis_value = '+dis_data.dis_value);
+        }else{
+            show_promo = product_total_price_val
+            dis_code_val = 0
+        }
+        
+        data.push({
+            bill_code: po_code,
+            buyer_id: '<?php echo $_SESSION['user_data']['user_id']?>',
+            product_id: $("#table_product_id_"+product_arr[i]).val(),
+            product_count: $("#table_product_count_"+product_arr[i]).val(),
+            product_price_total: show_promo,
+            dis_code: dis_code_val
+        })
+
+        log_total+=parseFloat(show_promo)
+    }
+
+    fetch("controllers/BuyProductByID.php", {
+        method: 'post',
+        body: JSON.stringify({
+            data: data,
+            total: log_total
+        })
+    }).then((res)=>res.json())
+    .then((b_data)=>{
+        console.log("----------------------------------");
+        console.log(b_data);
+        if (b_data) {
+            alert("ดำเนินการเสร็จสิ้น")
+            for (let i = 0; i < product_arr.length; i++) {
+                updateItemInCart(product_arr[i], 1,'remove', true)
+            }
+            window.location.href = "?app=account";
+        }else{
+            alert("ขออภัยเกิดข้อผิดพลาดระหว่างทำรายการ")
+            window.location.reload();
+        }
+    })
+
+    console.log('total = '+log_total);
+    console.log(data);
 }
 
 </script>

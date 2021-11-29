@@ -632,9 +632,14 @@ function BuyProduct(){
         console.log("----------------------------------");
         console.log(b_data);
         if (b_data) {
-            alert("ดำเนินการเสร็จสิ้น")
-            for (let i = 0; i < product_arr.length; i++) {
-                updateItemInCart(product_arr[i], 1,'remove', true)
+            if (confirm("ดำเนินการเสร็จสิ้น")) {
+                for (let i = 0; i < product_arr.length; i++) {
+                    updateItemInCart(product_arr[i], 1,'remove', true)
+                }
+            } else {
+                for (let i = 0; i < product_arr.length; i++) {
+                    updateItemInCart(product_arr[i], 1,'remove', true)
+                }
             }
             window.location.href = "?app=account";
         }else{

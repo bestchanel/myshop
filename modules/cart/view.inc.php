@@ -633,15 +633,17 @@ function BuyProduct(){
         console.log("----------------------------------");
         console.log(b_data);
         if (b_data) {
-            if (confirm("ดำเนินการเสร็จสิ้น")) {
-                for (let i = 0; i < product_arr.length; i++) {
-                    updateItemInCart(product_arr[i], 1,'remove', true)
-                }
-            } else {
-                for (let i = 0; i < product_arr.length; i++) {
-                    updateItemInCart(product_arr[i], 1,'remove', true)
-                }
-            }
+            fetch("controllers/deleteItemInCart.php", {
+                method: 'post',
+                body: JSON.stringify({
+                    product_id: product_arr})
+                }).then((res)=>res.json())
+                .then((data)=>{
+                    if (data) {
+                        
+                    }
+                })
+            alert("ดำเนินการเสร็จสิ้น")
             window.location.href = "?app=account";
         }else{
             alert("ขออภัยเกิดข้อผิดพลาดระหว่างทำรายการ")

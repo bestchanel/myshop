@@ -99,7 +99,7 @@ function updateProduct() {
     let product_brand = document.getElementById('product_brand').value
     let promotion = document.getElementById('promotion').checked
 
-    fetch('models/ProductModel.php',{
+    fetch('https://itustore.000webhostapp.com/models/ProductModel.php',{
         method: 'post',
         body: JSON.stringify({
             action:'update_product',
@@ -161,7 +161,7 @@ const upload_image = (file) => {
     //         product_id : product_id,
     //     }
     // });
-    fetch("models/uploadProduct.php", {
+    fetch("https://itustore.000webhostapp.com/models/uploadProduct.php", {
         method:"POST",
         body : form_data
     }).then(function(response){

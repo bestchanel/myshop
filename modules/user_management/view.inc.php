@@ -107,7 +107,7 @@ function updateUserByAdmin(user_id, key, val) {
     // console.log(user_id);
     // console.log(key);
     // console.log(val);
-   fetch("controllers/updateUserByID.php", {
+   fetch("https://itustore.000webhostapp.com/controllers/updateUserByID.php", {
        method: 'post',
        body: JSON.stringify({
            user_id: user_id,

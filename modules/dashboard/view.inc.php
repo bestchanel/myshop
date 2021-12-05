@@ -152,7 +152,7 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart(input) {
     let product_group = "<?php echo $_GET['product_group']?>";
     
-    fetch('models/DashboardModel.php',{
+    fetch('https://itustore.000webhostapp.com/models/DashboardModel.php',{
         method: 'post',
         body: JSON.stringify({
             action:'get_dashboard',
@@ -274,7 +274,7 @@ function loadDataChartModal(filter) {
     // console.log('g_brand = '+g_brand);
     // console.log('filter = '+filter);
     function drawStuff() {
-        fetch('controllers/getStaticByBrand.php',{
+        fetch('https://itustore.000webhostapp.com/controllers/getStaticByBrand.php',{
         method: 'post',
         body: JSON.stringify({
             brand: g_brand,

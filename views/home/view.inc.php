@@ -72,7 +72,9 @@ function numberWithCommas(x) {
             </div>
             <div class="col py-3 pb-5 p-3">
                 <h1 class="pb-5 mb-5 mt-5" style="border-bottom-style: solid;">
-                    รายการสินค้า <?php echo strtoupper(str_replace("_", " ", $_GET['product_group']))?> <i class="fas fa-shopping-cart"></i>
+                    รายการสินค้า <?php 
+                    echo strtoupper(str_replace("_", " ", $_GET['product_group']))
+                    ?> <i class="fas fa-shopping-cart"></i>
                 </h1>
                 <div class="mb-5">
                     <table class="table table-light table-striped display" id="myTable" style="width:100%">

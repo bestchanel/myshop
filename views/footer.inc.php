@@ -9,7 +9,7 @@
         let _username = document.getElementById('username').value
         let _password = document.getElementById('password').value
 
-        fetch('models/UserModel.php',{
+        fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
             method: 'post',
             body: JSON.stringify({
                 action:'login',
@@ -41,7 +41,7 @@
         let user_address = document.getElementById('user_address').value
 
         if (_username && _password && user_name && user_phone && user_mail && user_address) {
-            fetch('models/UserModel.php',{
+            fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
                 method: 'post',
                 body: JSON.stringify({
                     action:'register',
@@ -76,7 +76,7 @@ function cancelThis() {
 }
 
 function addToCart(product_id) {
-    fetch('controllers/insertProductToCard.php', {
+    fetch('https://itustore.000webhostapp.com/controllers/insertProductToCard.php', {
         method: 'post',
         body: JSON.stringify({
             product_id : product_id
@@ -90,7 +90,7 @@ function addToCart(product_id) {
 }
 
 function loadItemToIconCart(){
-    fetch('controllers/loadItemToIconCart.php')
+    fetch('https://itustore.000webhostapp.com/controllers/loadItemToIconCart.php')
     .then((res)=> res.json())
     .then((data)=>{
         $(".top_menu_cart").html(data+'<i class="fas fa-shopping-cart"></i>');
@@ -100,7 +100,7 @@ function loadItemToIconCart(){
 
 function removeProduct(product_id) {
     if (confirm("คุณแน่ใจที่จะลบสินค้าชิ้นนี้ออกจากร้านค้าหรืออไม่?")) {
-    fetch("controllers/deleteProductByID.php", {
+    fetch("https://itustore.000webhostapp.com/controllers/deleteProductByID.php", {
         method: 'post',
         body: JSON.stringify({
             product_id: product_id

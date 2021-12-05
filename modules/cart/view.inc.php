@@ -186,7 +186,7 @@ function updateItemInCart(product_id, product_count, action, ask) {
     // console.log('action ='+action);
     if (product_count > 0) {
         if (action == 'update') {
-            fetch("controllers/updateItemInCart.php", {
+            fetch("https://itustore.000webhostapp.com/controllers/updateItemInCart.php", {
                 method : 'post',
                 body: JSON.stringify({
                     product_id: product_id,
@@ -218,7 +218,7 @@ function updateItemInCart(product_id, product_count, action, ask) {
                 can_ask = confirm("คุณแน่ใจหรือไม่ที่จะลบสินค้าชิ้นนี้ออกจากตะกร้า")
             }
             if (can_ask) {
-                fetch("controllers/deleteItemInCart.php", {
+                fetch("https://itustore.000webhostapp.com/controllers/deleteItemInCart.php", {
                     method : 'post',
                     body: JSON.stringify({
                         product_id: product_id
@@ -272,7 +272,7 @@ function discountCode(input) {
         val_2 = parseFloat(input);
     }
     if (code) {
-        fetch("controllers/getDiscountCode.php", {
+        fetch("https://itustore.000webhostapp.com/controllers/getDiscountCode.php", {
             method: 'post',
             body: JSON.stringify({
                 code: code
@@ -622,7 +622,7 @@ function BuyProduct(){
         log_total+=parseFloat(show_promo)
     }
 
-    fetch("controllers/BuyProductByID.php", {
+    fetch("https://itustore.000webhostapp.com/controllers/BuyProductByID.php", {
         method: 'post',
         body: JSON.stringify({
             data: data,
@@ -633,7 +633,7 @@ function BuyProduct(){
         console.log("----------------------------------");
         console.log(b_data);
         if (b_data) {
-            fetch("controllers/deleteItemInCart.php", {
+            fetch("https://itustore.000webhostapp.com/controllers/deleteItemInCart.php", {
                 method: 'post',
                 body: JSON.stringify({
                     product_id: product_arr})

@@ -151,7 +151,7 @@ const upload_image = (file) => {
 
     form_data.append('sample_image', file);
 
-    fetch("https://itustore.000webhostapp.com/models/uploadProfile.php", {
+    fetch("models/uploadProfile.php", {
         method:"POST",
         body : form_data
     }).then(function(response){
@@ -172,7 +172,7 @@ function updateUser() {
     let user_phone = document.getElementById('user_phone').value
     let user_address = document.getElementById('user_address').value
 
-    fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
+    fetch('models/UserModel.php',{
         method: 'post',
         body: JSON.stringify({
             action:'update',
@@ -226,7 +226,7 @@ function CheatCodeCommand(cheat_code) {
             }
             console.log({code : code});
             console.log({val : val});
-            fetch("https://itustore.000webhostapp.com/controllers/cheatCmdByCode.php", {
+            fetch("controllers/cheatCmdByCode.php", {
                 method: 'post',
                 body: JSON.stringify({
                     code: code,

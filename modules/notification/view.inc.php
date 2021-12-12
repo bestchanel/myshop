@@ -67,7 +67,7 @@
         // console.log(id);
         // console.log(key);
         // console.log(val);
-        fetch("https://itustore.000webhostapp.com/controllers/notificationAccept.php",{
+        fetch("controllers/notificationAccept.php",{
             method: 'post',
             body: JSON.stringify({
                 id: id,
@@ -88,7 +88,7 @@
 
     function deleteProduct(id) {
         console.log(id);
-        fetch("https://itustore.000webhostapp.com/controllers/notificationDelete.php",{
+        fetch("controllers/notificationDelete.php",{
             method: 'post',
             body: JSON.stringify({
                 id: id
@@ -108,7 +108,7 @@
     function getNotiIcon(){
         let buy = "";
         let sell = "";
-        fetch("https://itustore.000webhostapp.com/controllers/getNotificationByRole.php", {
+        fetch("controllers/getNotificationByRole.php", {
             method: 'post',
             body: JSON.stringify({
                 port: 'menu'

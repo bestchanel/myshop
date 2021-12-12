@@ -9,7 +9,7 @@
         let _username = document.getElementById('username').value
         let _password = document.getElementById('password').value
 
-        fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
+        fetch('models/UserModel.php',{
             method: 'post',
             body: JSON.stringify({
                 action:'login',
@@ -19,12 +19,13 @@
         })
         .then((response) => response.json())
         .then((data) => {
+            console.log(data);
             if(data.user_id){
                 if (data.user_allow == 'ban') {
                     alert('บัญชีนี้ถูกระงับการใช้งานจากผู้ดูแลระบบ');
                 } else {
                     window.location.href = "?app=product";
-                    window.location.reload()
+                    // window.location.reload()
                 }
             }else{
                 alert("รหัสผ่านไม่ถูกต้อง!")
@@ -41,7 +42,7 @@
         let user_address = document.getElementById('user_address').value
 
         if (_username && _password && user_name && user_phone && user_mail && user_address) {
-            fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
+            fetch('models/UserModel.php',{
                 method: 'post',
                 body: JSON.stringify({
                     action:'register',
@@ -76,7 +77,7 @@ function cancelThis() {
 }
 
 function addToCart(product_id) {
-    fetch('https://itustore.000webhostapp.com/controllers/insertProductToCard.php', {
+    fetch('controllers/insertProductToCard.php', {
         method: 'post',
         body: JSON.stringify({
             product_id : product_id
@@ -90,7 +91,7 @@ function addToCart(product_id) {
 }
 
 function loadItemToIconCart(){
-    fetch('https://itustore.000webhostapp.com/controllers/loadItemToIconCart.php')
+    fetch('controllers/loadItemToIconCart.php')
     .then((res)=> res.json())
     .then((data)=>{
         $(".top_menu_cart").html(data+'<i class="fas fa-shopping-cart"></i>');
@@ -100,7 +101,7 @@ function loadItemToIconCart(){
 
 function removeProduct(product_id) {
     if (confirm("คุณแน่ใจที่จะลบสินค้าชิ้นนี้ออกจากร้านค้าหรืออไม่?")) {
-    fetch("https://itustore.000webhostapp.com/controllers/deleteProductByID.php", {
+    fetch("controllers/deleteProductByID.php", {
         method: 'post',
         body: JSON.stringify({
             product_id: product_id

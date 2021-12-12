@@ -227,7 +227,7 @@ function add_product() {
         console.log(promotion);
 
         if (product_name && product_detail && product_group && product_price && product_brand && product_image) {
-            fetch('https://itustore.000webhostapp.com/models/ProductModel.php',{
+            fetch('models/ProductModel.php',{
                 method: 'post',
                 body: JSON.stringify({
                     action:'add_product',
@@ -265,7 +265,7 @@ function add_product() {
         let _username = document.getElementById('username').value
         let _password = document.getElementById('password').value
 
-        fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
+        fetch('models/UserModel.php',{
             method: 'post',
             body: JSON.stringify({
                 action:'login',
@@ -293,7 +293,7 @@ function add_product() {
         let user_address = document.getElementById('user_address').value
 
         if (_username && _password && user_name && user_phone && user_mail && user_address) {
-            fetch('https://itustore.000webhostapp.com/models/UserModel.php',{
+            fetch('models/UserModel.php',{
                 method: 'post',
                 body: JSON.stringify({
                     action:'register',

@@ -26,7 +26,7 @@ function add_product() {
         console.log(promotion);
 
         if (product_name && product_detail && product_group && product_price && product_brand) {
-            fetch('https://itustore.000webhostapp.com/https://itustore.000webhostapp.com/models/ProductModel.php',{
+            fetch('models/ProductModel.php',{
                 method: 'post',
                 body: JSON.stringify({
                     action:'add_product',
@@ -88,7 +88,7 @@ if(file.size > 2 * 1024 * 1024)
 
     form_data.append('sample_image', file);
 
-    fetch("https://itustore.000webhostapp.com/models/upload.php", {
+    fetch("models/upload.php", {
         method:"POST",
         body : form_data
     }).then(function(response){

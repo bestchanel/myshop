@@ -16,8 +16,12 @@
                 </div>
                 <br>
                 <div class="col-md-12" style="margin-top: 10%;">
-                    <input type="button" class="btn btn-success" style="width: inherit;" value="Login" onclick="loginUser()">
-                    <input type="button" class="btn btn-secondary mt-3" style="width: inherit;" value="Register" onclick='window.location.href = "?app=register";'>
+                    <div class="text-center">
+                        <input type="button" class="btn btn-success w-auto" style="width: inherit;" value="Login" onclick="loginUser()">
+                    </div>
+                    <div class="text-center">
+                        <input type="button" class="btn btn-secondary mt-3 w-auto" style="width: inherit;" value="Register" onclick='window.location.href = "?app=register";'>
+                    </div>
                 </div>
             </div>
         </div>

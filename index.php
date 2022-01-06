@@ -8,7 +8,7 @@
   ?>
 </head>
 
-<body>
+<body class="<?php if(($_GET['app'] == 'login') || ($_GET['app'] == 'register')){echo "overflow-hidden";}?>">
   <?php
     if (isset($_SESSION['user_data']['user_id'])) {
       require_once("modules/index.php");

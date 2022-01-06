@@ -12,7 +12,7 @@ function numberWithCommas(x) {
 </script>
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark fade-in">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light fade-in">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span class="fs-5 d-none d-sm-inline">ตัวเลือก</span>
@@ -29,55 +29,87 @@ function numberWithCommas(x) {
                 </div> -->
                 <ul class="navbar-nav" style="width: -webkit-fill-available;">
 
-                    <li class="nav-item btn_hover btn_hover btn_filter <?php if($_GET['product_group'] == ""){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard" >ทั้งหมด</a>
-                    </li>
+                <li class="nav-item btn btn-outline-secondary btn_hover btn_hover btn_filter <?php if($_GET['product_group'] == ""){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard" >
+                                ทั้งหมด
+                            </a>
+                        </li>
 
-                    <li class="nav-item btn_hover btn_hover btn_filter <?php if($_GET['product_group'] == 'CPU'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=CPU" >CPU</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_hover btn_filter <?php if($_GET['product_group'] == 'CPU'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=CPU" >
+                                <img src="./templates/download/icon/png/005-cpu.png" alt="" srcset="">
+                                CPU
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'MAINBOARD'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=MAINBOARD">Mainboard</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'MAINBOARD'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=MAINBOARD">
+                                <img src="./templates/download/icon/png/004-mainboard.png" alt="" srcset="">
+                                Mainboard
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'VGA'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=VGA">VGA</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'VGA'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=VGA">
+                                <img src="./templates/download/icon/png/006-vga-card.png" alt="" srcset="">
+                                VGA
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'RAM'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=RAM">RAM</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'RAM'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=RAM">
+                                <img src="./templates/download/icon/png/003-ram.png" alt="" srcset="">
+                                RAM
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'HDD'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=HDD">HDD</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'HDD'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=HDD">
+                                <img src="./templates/download/icon/png/007-hdd.png" alt="" srcset="">
+                                HDD
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'SSD'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=SSD">SSD</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'SSD'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=SSD">
+                                <img src="./templates/download/icon/png/002-solid-state-drive.png" alt="" srcset="">
+                                SSD
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'POWER_SUPPLY'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=POWER_SUPPLY">Power Supply</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'POWER_SUPPLY'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=POWER_SUPPLY">
+                                <img src="./templates/download/icon/png/008-power-supply.png" alt="" srcset="">
+                                Power Supply
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'CASE'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=CASE">Case</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'CASE'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=CASE">
+                                <img src="./templates/download/icon/png/010-computer-case-1.png" alt="" srcset="">
+                                Case
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'CPU_COOLLER'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=CPU_COOLLER">CPU Cooler</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'CPU_COOLLER'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=CPU_COOLLER">
+                                <img src="./templates/download/icon/png/001-water-cooler.png" alt="" srcset="">
+                                CPU Cooler
+                            </a>
+                        </li>
 
-                    <li class="nav-item  btn_hover btn_filter <?php if($_GET['product_group'] == 'MONITOR'){ echo "btn_hl"; } ?>">
-                        <a class="nav-link active" aria-current="page" href="?app=dashboard&product_group=MONITOR">Monitor</a>
-                    </li>
+                        <li class="nav-item btn btn-outline-secondary btn_hover btn_filter <?php if($_GET['product_group'] == 'MONITOR'){ echo "btn_hl"; } ?>">
+                            <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=dashboard&product_group=MONITOR">
+                                <img src="./templates/download/icon/png/011-monitor.png" alt="" srcset="">
+                                Monitor
+                            </a>
+                        </li>
 
                 </ul>
             </div>
         </div>
-        <div class="col py-3 pb-5 p-3 bg-secondary">
-            <h1 class="pb-5 mb-5 mt-5 text-light" style="border-bottom-style: solid;">
+        <div class="col py-3 pb-5 p-3 bg-body">
+            <h1 class="pb-5 mb-5 mt-5 text-dark" style="border-bottom-style: solid;">
                 ค่าความนิยมของสินค้า <?php echo strtoupper(str_replace("_", " ", $_GET['product_group']))?> <i class="fas fa-chart-pie"></i>
             </h1>
             <div class="col-md-12 row text-center" style="place-content: center;">

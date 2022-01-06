@@ -1,5 +1,5 @@
-html,body,p,h1,div{
-    font-family: 'Kanit', sans-serif;
+*{
+    font-family: 'Kanit', sans-serif !important;
     
 }
 html,body{

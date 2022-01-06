@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-6">
             <label for="">Product detail</label>
-            <input type="text" placeholder="รายละเอียดสินค้า เช่น 6 Cores 4 Trades 3.7 GHz Discrete Graphics Required, No Integrated Graphics." class="form-control" name="product_detail" id="product_detail">
+            <input type="text" placeholder="รายละเอียดสินค้าโดยย่อ เช่น 6 Cores 4 Trades 3.7 GHz Discrete Graphics Required, No Integrated Graphics." class="form-control" name="product_detail" id="product_detail">
         </div>
         
         <div class="col-md-6">
@@ -31,7 +31,12 @@
             <p class="">หรือ</p>
             <input class="" type="file" name="sample_image" />
         </div>
-        <div class="col-md-6" style="align-self:center;">
+        <div class="col-md-12" style="align-self:center;">
+            <label for="">Full product detail</label>
+            <textarea name="product_detail_large" id="product_detail_large" class="form-control" placeholder="รายละเอียดสินค้า" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="col-md-6 mt-3" style="align-self:center;">
             <label for="">จัดให้สินค้าเป็น Promotion หรือไม่?</label>
             <input type="checkbox" oninput="console.log(this.checked)" name="promotion" id="promotion">
         </div>

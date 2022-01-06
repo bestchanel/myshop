@@ -12,6 +12,7 @@
 
         $product_name = $input['product_name'];
         $product_detail = $input['product_detail'];
+        $product_detail_large = $input['product_detail_large'];
         $product_price = $input['product_price'];
         $product_group = $input['product_group'];
         $product_brand = $input['product_brand'];
@@ -25,6 +26,7 @@
             `product_id`, 
             `product_name`, 
             `product_detail`, 
+            `product_detail_large`, 
             `product_group`, 
             `product_price`, 
             `product_brand`, 
@@ -39,6 +41,7 @@
                 NULL, 
                 '".$product_name."', 
                 '".$product_detail."', 
+                '".$product_detail_large."', 
                 '".$product_group."', 
                 '".$product_price."', 
                 '".$product_brand."', 
@@ -95,6 +98,7 @@
         $product_id = $input['product_id'];
         $product_name = $input['product_name'];
         $product_detail = $input['product_detail'];
+        $product_detail_large = $input['product_detail_large'];
         $product_group = $input['product_group'];
         $product_price = $input['product_price'];
         $product_brand = $input['product_brand'];
@@ -106,6 +110,7 @@
         $query = "UPDATE `tbl_product` SET 
         `product_name` = '".$product_name."', 
         `product_detail` = '".$product_detail."', 
+        `product_detail_large` = '".$product_detail_large."', 
         `product_group` = '".$product_group."', 
         `product_price` = '".$product_price."', 
         `product_brand` = '".$product_brand."', 

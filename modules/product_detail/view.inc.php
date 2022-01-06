@@ -29,41 +29,47 @@
         <div class="col-md-8 card shadow-lg p-3 mb-5 bg-body rounded ">
             <div class="card-body">
                <h3 style="text-align: center;" class="mb-3">Detail</h3>
-                <table class="table table-light" style="width: 100%;">
-                    <tr>
-                        <td>
-                            <p>Name</p>
-                        </td>
-                        <td>
-                            <p><?php echo $data['product_name']?></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Brand</p>
-                        </td>
-                        <td>
-                            <p><?php echo $data['product_brand']?></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Type</p>
-                        </td>
-                        <td>
-                            <p><?php echo str_replace("_", " ", $data['product_group'])?></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Rate</p>
-                        </td>
-                        <td>
-                            <p><?php echo $data['product_rate']?></p>
-                        </td>
-                    </tr>
-                </table>
-    
+               <table class="table table-light" style="width: 100%;">
+                   <tr>
+                       <td>
+                           <p>Name</p>
+                       </td>
+                       <td>
+                           <p><?php echo $data['product_name']?></p>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <p>Brand</p>
+                       </td>
+                       <td>
+                           <p><?php echo $data['product_brand']?></p>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <p>Type</p>
+                       </td>
+                       <td>
+                           <p><?php echo str_replace("_", " ", $data['product_group'])?></p>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <p>Rate</p>
+                       </td>
+                       <td>
+                           <p><?php echo $data['product_rate']?></p>
+                       </td>
+                   </tr>
+               </table>
+               <hr>
+               <h3 style="text-align: center;" class="mb-3">Properties</h3>
+                <div class="card p-3">
+                    <label>
+                        <?php echo $data['product_detail_large']?>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="col-md-4 card shadow-lg p-3 mb-5 bg-body rounded item_hover_gray">

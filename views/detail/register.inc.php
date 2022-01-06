@@ -35,10 +35,10 @@
                 <br>
                 <div class="col-md-12" style="margin-top: 10%;">
                     <div class="text-center">
-                        <input type="button" class="btn btn-success w-auto" style="width: inherit;" value="Submit" onclick="registerUser()">
+                        <input type="button" class="btn btn-success" style="width: inherit;" value="Submit" onclick="registerUser()">
                     </div>
                     <div class="text-center">
-                        <input type="button" class="btn btn-primary mt-3 w-auto" style="width: inherit;" value="Login" onclick='window.location.href = "?app=login";'>
+                        <input type="button" class="btn btn-primary mt-3" style="width: inherit;" value="Login" onclick='window.location.href = "?app=login";'>
                     </div>
                 </div>
             </div>

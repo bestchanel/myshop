@@ -67,7 +67,7 @@
                <h3 style="text-align: center;" class="mb-3">Properties</h3>
                 <div class="card p-3">
                     <label>
-                        <?php echo $data['product_detail_large']?>
+                        <?php echo str_replace("<br><br>", "<br><hr>", $data['product_detail_large'])?>
                     </label>
                 </div>
             </div>

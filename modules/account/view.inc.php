@@ -8,7 +8,7 @@
                 <div class="card-body" style="text-align: center;">
                     <img src="<?php echo $_SESSION['user_data']['user_profile']?>" alt="" srcset="" class="img img-responsive full-width" style="width: -webkit-fill-available; border-radius:100%; width:15vh;">
                     <div style="text-align: center;" class="mt-4">
-                        <a type="button" class="btn btn-danger mb-4" href="logout.php">Logout</a>
+                        <a type="button" class="btn btn-danger mb-4 w-100" href="logout.php">Logout <i class="fas fa-sign-out-alt"></i></a>
                         <p>ID : <?php echo $_SESSION['user_data']['username']?></p>
                         <p>ชื่อ : <?php echo $_SESSION['user_data']['user_name']?></p>
                         <p>สถานะ : <?php echo $_SESSION['user_data']['user_role']?></p>

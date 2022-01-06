@@ -16,9 +16,24 @@
             <tbody>
             <?php for ($i=0; $i < count($data); $i++) { ?>
                 
-                <tr <?php if ($data[$i]['user_allow'] == "ban") {
-                    echo 'class="table-danger"';
-                }?> >
+                <tr 
+                    class="
+                        <?php 
+                            if($data[$i]['user_allow'] == "ban"){
+                                echo 'table-danger';
+                            }
+                            elseif($data[$i]['user_role'] == "Admin") {
+                                echo 'table-primary';
+                            }
+                            elseif($data[$i]['user_role'] == "Sellman") {
+                                echo 'table-warning';
+                            }
+                            else{
+                                echo 'table-secondary';
+                            }
+                        ?>
+                    " 
+                >
                     <td>
                         <?php echo intval($i+1)?>
                     </td>

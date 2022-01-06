@@ -2,8 +2,8 @@
 <title>ITu | <?php echo strtoupper(str_replace("_", " ", $_GET['app']))?></title>
 <link rel="icon" type="image/png" href="templates/image/ICON.png"/>
 
-<link rel="stylesheet" href="templates/css/main.css">
-<link rel="stylesheet" href="templates/fontawesome/css/all.css">
+<link rel="stylesheet" href="./templates/css/main.css">
+<link rel="stylesheet" href="./templates/fontawesome/css/all.css">
 
 <!-- ===========Jquery=========== -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

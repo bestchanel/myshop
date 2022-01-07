@@ -11,7 +11,7 @@
                     <tr>
                         <td>
                             <h3>
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-user" aria-hidden="true"></i>
                             </h3>
                         </td>
                         <td>
@@ -21,7 +21,7 @@
                     <tr>
                         <td>
                             <h3>
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-lock" aria-hidden="true"></i>
                             </h3>
                         </td>
                         <td>

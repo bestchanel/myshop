@@ -18,9 +18,9 @@ function numberWithCommas(x) {
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light fade-in">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none text-center">
-                        <span class="fs-5 d-none d-sm-inline text-dark">ตัวเลือก</span>
-                    </a>
+                    <div class="w-100 text-center border border-dark p-3 rounded bg-dark">
+                        <h3 class="d-sm-inline text-light">ตัวเลือก</h3>
+                    </div>
                     <ul class="navbar-nav w-100 w-100" style="width: -webkit-fill-available;">
                         
                         <li class="nav-item btn btn-outline-secondary w-100 btn_hover btn_hover btn_filter <?php if($_GET['product_group'] == ""){ echo "btn_hl"; } ?>">

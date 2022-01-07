@@ -136,7 +136,6 @@
     setTimeout($('#loadingScreen').fadeIn(), 200);
 
 
-
     jQuery(window).load(function() {
         pageLoaded();
         setTimeout(function() {
@@ -144,6 +143,8 @@
             $("#loading_content").html = "ไม่มีการตอบสนองจากเซิฟเวอร์";
         }, 60000);
     });
+
+
 </script>
 
 <!-- ================================= scroll to top ================================= -->

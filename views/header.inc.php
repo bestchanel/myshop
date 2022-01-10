@@ -1,7 +1,4 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ITu | <?php echo strtoupper(str_replace("_", " ", $_GET['app']))?></title>
 <link rel="icon" type="image/png" href="templates/image/ICON.png"/>
@@ -38,6 +35,7 @@
 
 <!-- ===========Google Chart=========== -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['bar']}]}"></script> -->
 
 
 <!-- =============== MDB =============== -->

@@ -150,7 +150,7 @@ function numberWithCommas(x) {
                                                 <div class="btn btn-success m-1" onclick="addToCart(<?php echo $data[$i]['product_id']?>)">
                                                     <i class="fas fa-cart-plus"></i>
                                                 </div>
-                                                <a class="btn btn-primary m-1" href="?app=promotion_detail&product_id=<?php echo $data[$i]['product_id']?>">
+                                                <a class="btn btn-primary m-1" href="?app=product_detail&product_id=<?php echo $data[$i]['product_id']?>">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
 

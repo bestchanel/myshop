@@ -3,7 +3,7 @@
     <div class="card col-md-4 m-auto border border- border-secondary mt-5" style="background-color: #ffffff91;">
         <div class="card-body m-auto"> 
             <div style="text-align: center;">
-                <h1>Register</h1>
+                <i class="fas fa-user-plus" style="font-size:10vh;"></i>
             </div>
             <hr>
             <div class="row col-md-12">

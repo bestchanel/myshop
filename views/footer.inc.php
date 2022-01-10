@@ -156,7 +156,7 @@
             scrollduration: 1e3,
             fadeduration: [500, 100]
         },
-        controlHTML: '<img src="https://lh3.googleusercontent.com/pw/AM-JKLV2MF2WN_5B3td3va3nQNWhyjx3poIp_gMEW1h4DUK5eokCIBaWGKmfPDFAaprGsMOv_pa56Iff9W0vaZWp3WoxCWgYsCc3zCdzEoOOIlajT2Cttpvrkg-ddHTDtpLqGl8sRFlkHUCF2sQbC4gaZYU=s50-no" />',
+        controlHTML: '<img src="https://image.flaticon.com/icons/png/512/44/44603.png" style="width:64px;" />',
         controlattrs: {
             offsetx: 5,
             offsety: 5

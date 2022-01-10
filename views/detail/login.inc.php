@@ -3,7 +3,9 @@
     <div class="card col-md-4 m-auto border border- border-secondary mt-5" style="background-color: #ffffff91;">
         <div class="card-body m-auto">
             <div style="text-align: center;">
-                <h1>Login</h1>
+                <h1>
+                    <i class="fas fa-user-alt" style="font-size: 10vh;"></i>
+                </h1>
             </div>
             <hr>
             <div class="row col-md-12 m-auto">
@@ -15,7 +17,7 @@
                             </h3>
                         </td>
                         <td>
-                            <input type="text" class="form-control" name="username" id="username">
+                            <input type="text" placeholder="Username" class="form-control" name="username" id="username">
                         </td>
                     </tr>
                     <tr>
@@ -25,7 +27,7 @@
                             </h3>
                         </td>
                         <td>
-                            <input type="password" class="form-control" name="password" id="password">
+                            <input type="password" placeholder="Password" class="form-control" name="password" id="password">
                         </td>
                     </tr>
                 </table>

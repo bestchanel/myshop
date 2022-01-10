@@ -31,7 +31,7 @@ function numberWithCommas(x) {
                             </button>
                         </div>
                     </div> -->
-                    <ul class="navbar-nav" style="width: -webkit-fill-available;">
+                    <ul class="navbar-nav w-100" style="width: -webkit-fill-available;">
 
                     <li class="nav-item btn btn-outline-secondary w-100 btn_hover btn_hover btn_filter <?php if($_GET['product_group'] == ""){ echo "btn_hl"; } ?>">
                             <a class="nav-link active d-flex gap-3" aria-current="page" href="?app=promotion" >

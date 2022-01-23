@@ -1,5 +1,5 @@
 <div class="col-md-12 align-content-center text-center">
-    <div class="position-absolute" style="background-image:url('./templates/image/banner number2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh; width:210vh; filter: blur(50px);"></div>
+    <div class="position-absolute" style="background-image:url('./templates/image/new_banner.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100vh; width:210vh; filter: blur(50px);"></div>
     <div class="card col-md-4 m-auto border border- border-secondary mt-5" style="background-color: #ffffff91;">
         <div class="card-body m-auto">
             <div style="text-align: center;">

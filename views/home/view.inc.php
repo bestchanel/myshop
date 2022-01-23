@@ -12,7 +12,7 @@ function numberWithCommas(x) {
 </script>
 <div class="col-md-12">
     <div class="col-md-12 mb-2">
-        <img class="w-100" src="./templates/image/banner number2.jpg" alt="" srcset="">
+        <img class="w-100" src="./templates/image/new_banner.jpg" alt="" srcset="">
     </div>
     <div class="container-fluid">
         <div class="row flex-nowrap">
